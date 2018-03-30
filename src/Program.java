@@ -1,6 +1,8 @@
 import input.InputReader;
 import utils.Constants;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import static utils.SDUtils.*;
@@ -23,13 +25,26 @@ class Program {
 
     private void initAsker() {
         Scanner scanner = new Scanner(System.in);
-        String userInput;
-        do {
-            userInput = scanner.nextLine();
-        } while (!isEmpty(userInput));
-        scanner.close();
         InputReader inputReader = new InputReader();
-        inputReader.readInput(userInput);
+        List<String> userInput = new ArrayList<String>();
+        String input;
+        do {
+            input = scanner.nextLine();
+        	if (inputReader.validateInput(input)) {
+//        		print("You've entered:" + Constants.NEW_LINE + input);
+        		if (inputReader.readInput(input)) {
+        			userInput.add(input);
+        		}
+        	} else {
+        		print("Your input is not valid. Please try again. You've entered:" + Constants.NEW_LINE + input);
+        	}
+        } while (inputReader.readInput(input));
+        scanner.close();
+        
+        print("Song list:");
+        for (String song: userInput) {
+        	print(song);
+        }
     }
 
 }
