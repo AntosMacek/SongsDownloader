@@ -11,4 +11,6 @@ public class Constants {
     public static final String WELCOME_MSG = DELIMITER_EQUALITY + "Welcome to Songs Downloader ver0.1!" + DELIMITER_EQUALITY;
     public static final String ENTER_SONGS = "Enter songs names (use ; as delimiter): ";
 
+    public static final String YT_QUERY_TEMPLATE = "https://www.youtube.com/results?search_query="; // Delimiter between words is +
+
 }
