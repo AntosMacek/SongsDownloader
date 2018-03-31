@@ -1,15 +1,13 @@
 import input.InputReader;
 import utils.Constants;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import static utils.SDUtils.*;
 
 class Program {
-
-    Program() {
-
-    }
 
     void start() {
         initWelcome();
@@ -23,13 +21,14 @@ class Program {
 
     private void initAsker() {
         Scanner scanner = new Scanner(System.in);
-        String userInput;
-        do {
-            userInput = scanner.nextLine();
-        } while (!isEmpty(userInput));
-        scanner.close();
         InputReader inputReader = new InputReader();
-        inputReader.readInput(userInput);
+        List<String> songs = new ArrayList<>();
+        String userInput;
+        while (inputReader.readInput(userInput = scanner.nextLine())) {
+            songs.add(userInput);
+        }
+        scanner.close();
+        inputReader.processInput(songs);
     }
 
 }

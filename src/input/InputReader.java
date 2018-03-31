@@ -3,15 +3,21 @@ package input;
 import utils.Constants;
 import utils.SDUtils;
 
+import java.util.List;
+
 public class InputReader {
 
-    // TODO: Make readInput to return boolean and read its returned value in Program.initAsker while-loop.
-    public void readInput(String s) {
-        SDUtils.print("You've entered:" + Constants.NEW_LINE + s);
+    public boolean readInput(String s) {
+        return validateInput(s);
     }
 
-    // TODO: Create method boolean validateInput, which will be checking if the user's input is correct according to our rules. Rules will arrive later.
+    private boolean validateInput(String s) {
+        return !(Constants.APP_EXIT_SYMBOL.equals(s) || SDUtils.isEmpty(s));
+    }
 
-    // TODO: create an object of input.InputParser in input.InputReader.readInput and pass to input.InputParser.processInput user's input.
+    public void processInput(List<String> songs) {
+        InputParser inputParser = new InputParser();
+        inputParser.processInput(songs);
+    }
 
 }
