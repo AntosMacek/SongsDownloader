@@ -28,17 +28,14 @@ class Program {
         InputReader inputReader = new InputReader();
         List<String> userInput = new ArrayList<String>();
         String input;
-        do {
+        while (inputReader.readInput(input = scanner.nextLine())) {
             input = scanner.nextLine();
         	if (inputReader.validateInput(input)) {
-//        		print("You've entered:" + Constants.NEW_LINE + input);
-        		if (inputReader.readInput(input)) {
-        			userInput.add(input);
-        		}
+       			userInput.add(input);
         	} else {
         		print("Your input is not valid. Please try again. You've entered:" + Constants.NEW_LINE + input);
         	}
-        } while (inputReader.readInput(input));
+        }
         scanner.close();
         
         print("Song list:");

@@ -1,6 +1,9 @@
 package input;
 
+import java.util.List;
+
 import utils.Constants;
+import utils.SDUtils;
 
 public class InputReader {
 
@@ -14,9 +17,14 @@ public class InputReader {
 
     // TODO: Create method boolean validateInput, which will be checking if the user's input is correct according to our rules. Rules will arrive later.
     public boolean validateInput(String s) {
-        if (s.length() > 0) {
+        if (!SDUtils.isEmpty(s)) {
         	return true;
         }
         return false;
+    }
+    
+    public void processInput(List<String> list) {
+    	InputParser inputParser = new InputParser(); 
+    	inputParser.processInput(list);
     }
 }
