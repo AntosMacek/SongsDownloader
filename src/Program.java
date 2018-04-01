@@ -29,7 +29,6 @@ class Program {
         List<String> userInput = new ArrayList<String>();
         String input;
         while (inputReader.readInput(input = scanner.nextLine())) {
-            input = scanner.nextLine();
         	if (inputReader.validateInput(input)) {
        			userInput.add(input);
         	} else {
@@ -37,11 +36,7 @@ class Program {
         	}
         }
         scanner.close();
-        
-        print("Song list:");
-        for (String song: userInput) {
-        	print(song);
-        }
+        inputReader.processInput(userInput);
     }
 
 }

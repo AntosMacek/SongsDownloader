@@ -17,7 +17,7 @@ public class InputReader {
 
     // TODO: Create method boolean validateInput, which will be checking if the user's input is correct according to our rules. Rules will arrive later.
     public boolean validateInput(String s) {
-        if (!SDUtils.isEmpty(s)) {
+        if (SDUtils.notEmpty(s)) {
         	return true;
         }
         return false;

@@ -6,7 +6,7 @@ public class SDUtils {
         System.out.println(s);
     }
 
-    public static boolean isEmpty(String s) {
+    public static boolean notEmpty(String s) {
         return s != null && s.length() != 0;
     }
 
